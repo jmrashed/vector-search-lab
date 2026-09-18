@@ -18,7 +18,11 @@ def main() -> None:
     store = QdrantVectorStore(settings.qdrant_collection)
 
     vector = embedder.embed([query])[0]
-    results = store.search(vector, settings.default_top_k)
+    try:
+        results = store.search(vector, settings.default_top_k)
+    except Exception:
+        print("Error: collection not found. Run scripts/ingest.py first.")
+        sys.exit(1)
 
     print(f"\nQuery: {query}\n")
     for i, result in enumerate(results, 1):
@@ -26,6 +30,9 @@ def main() -> None:
         print(f"{i}. [{result.score:.4f}] {result.source}  (chunk {result.chunk_index})")
         print(f"   {preview}...")
         print()
+
+    if not results:
+        print("No results found. Run scripts/ingest.py first.")
 
 
 if __name__ == "__main__":

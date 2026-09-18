@@ -2,6 +2,9 @@ from app.models.schemas import Chunk
 
 
 def chunk(text: str, source: str, size: int, overlap: int) -> list[Chunk]:
+    if overlap >= size:
+        raise ValueError(f"overlap ({overlap}) must be less than size ({size})")
+
     words = text.split()
     if not words:
         return []

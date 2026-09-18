@@ -1,4 +1,5 @@
 import uuid
+from pathlib import Path
 
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, PointStruct, VectorParams
@@ -7,9 +8,12 @@ from app.models.schemas import Chunk, SearchResult
 from app.vectorstore.base import VectorStore
 
 
+_QDRANT_STORAGE = Path(__file__).resolve().parent.parent.parent / ".qdrant"
+
+
 class QdrantVectorStore(VectorStore):
     def __init__(self, collection: str):
-        self._client = QdrantClient(path="./.qdrant")
+        self._client = QdrantClient(path=str(_QDRANT_STORAGE))
         self._collection = collection
 
     def create_collection(self, name: str, vector_size: int) -> None:

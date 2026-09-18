@@ -46,3 +46,9 @@ def test_chunk_sets_index():
 def test_empty_text_returns_empty_list():
     result = chunk("", "test.md", size=200, overlap=40)
     assert result == []
+
+
+def test_overlap_equals_size_raises():
+    import pytest
+    with pytest.raises(ValueError):
+        chunk("word " * 100, "test.md", size=100, overlap=100)
