@@ -1,0 +1,118 @@
+# ================================
+# Python
+# ================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking / linters
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# ================================
+# Environment / Secrets
+# ================================
+
+.env
+.env.local
+.env.*.local
+*.secret
+*.pem
+*.key
+
+# ================================
+# IDE / Editors
+# ================================
+
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# ================================
+# Logs
+# ================================
+
+*.log
+logs/
+
+# ================================
+# Local Application Data
+# ================================
+
+data/*
+!data/.gitkeep
+
+tmp/
+temp/
+
+# ================================
+# Qdrant / Vector DB
+# ================================
+
+.qdrant/
+qdrant_storage/
+storage/
+*.db
+*.sqlite
+*.sqlite3
+
+# ================================
+# Jupyter
+# ================================
+
+.ipynb_checkpoints/
+
+# ================================
+# OS
+# ================================
+
+Thumbs.db
+Desktop.ini
+
+# ================================
+# Generated / Cache Files
+# ================================
+
+.cache/
+.cache-loader/
+.parcel-cache/
+.pyre/
+.pytype/
+
+# ================================
+# Local Docker Overrides
+# ================================
+
+docker-compose.override.yml
+
+# ================================
+# Project-specific
+# ================================
+
+*.local
+docs
